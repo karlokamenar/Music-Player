@@ -1,0 +1,228 @@
+body{
+    margin: 0px;
+    padding: 0px;
+}
+#pozadina{
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+    overflow: hidden;
+}
+#pozadina img{
+    height: 120vh;
+    width: 105%;
+    -webkit-filter:blur(15px);
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 1;
+}
+#pozadinska{
+    height: 100vh;
+    width: 100%;
+    background-color: rgba(0,0,0,.4);
+    position: absolute;
+    z-index: 99;
+}
+#glavni{
+    width: 40%;
+    background-color:transparent;
+    border-radius: 15px;
+	border-color: red;
+	border-bottom: 10px;
+    position: relative;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 999;
+}
+#slika img{
+    height: 37%;
+    width: 100%;
+    margin-top: -5px;
+    border-top-left-radius:20px;
+    border-top-right-radius: 20px;
+	border-bottom-left-radius:20px;
+    border-bottom-right-radius: 20px;
+}
+#player{
+    padding: 25px;
+    color:#333;
+	padding-top:37x;
+}
+#nazivPjesme{
+    width:95%;
+    text-align: center;
+    font-family: monospace;
+	background-color: rgb(204, 204, 255);
+	border-radius:18px;
+	border:4px solid gold;
+	color: black;
+    font-size: 22px;
+    position: absolute;
+    top:56%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+#buttons{
+    height: 70px;
+    width: 100%;
+    margin-top: 50px;
+    position:relative;
+    top:10%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+#play,#iduca,#prethodna{
+    width: 70px;
+    height: 70px;
+    border: 0;
+    background-color:transparent;
+    border-radius: 50%;
+    outline: none;
+    cursor: pointer;
+    position: absolute;
+    top:63%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+#iduca{
+    width: 60px;
+    height: 60px;
+    left: 80%;
+}
+#prethodna{
+    width: 60px;
+    height: 60px;
+    left:20%;
+
+}
+#play{
+	width: 60px;
+    height: 60px;
+	
+}	
+#play img,#iduca img,#prethodna img{
+	width: 60px;
+    height: 60px;
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+#waves{  
+  position:relative;
+  float: right;
+  right:60px;
+}  
+
+#waves span{
+  width:5px;  
+  height: 5px;  
+  bottom:0px;
+  position:absolute;  
+  background:gold;  
+  -webkit-animation: bodong 0.8s infinite  ease;  
+}  
+
+#waves span:first-child{  
+  left:0px;  
+  -webkit-animation-delay:.3s;  
+}  
+
+#waves span:nth-child(2){  
+  left:7px;  
+  -webkit-animation-delay:.4s;  
+
+}  
+#waves span:nth-child(3){  
+  left:14px;  
+  -webkit-animation-delay:.6s;  
+}  
+#waves span:nth-child(4){  
+  left:21px;  
+  -webkit-animation-delay:.8s;  
+}  
+#waves span:nth-child(5){  
+  left:28px;  
+  -webkit-animation-delay:1s;  
+}  
+
+@-webkit-keyframes bodong{  
+  0%{height:5px; background:bule;}  
+  30%{height:15px; background:bule;}  
+  60%{height:20px; background:bule;}  
+  80%{height:15px; background:bule;}  
+  100%{height:5px; background:bule;}  
+}
+#traka{
+    width: 75%;
+    height: 7px;
+    background-color:rgba(204, 204, 255,0.8);
+    display: flex;
+    border-radius: 50px;
+    margin-left: 25px;
+    cursor: pointer;
+}
+#ispuni{
+    height: 5px;
+    background-color:rgba(255,215,0,0.9);
+    border-radius: 20px;
+}
+#kruzic{
+    width: 9px;
+    height: 9px;
+    background-color:rgba(255,215,0,0.8);
+    border-radius: 50%;
+    margin-left: -5px;
+    transform: scale(2);
+}
+#currentTime{
+	font-family: monospace;
+	font-size:18px;
+	position:relative;
+	transform: translate(-50%,-50%);
+	top:100%;
+	left:60%;
+	padding-top:30px;
+	color: gold;
+}
+#zvuk{
+	position:absolute;
+	top:92%;
+	left:78%;
+	transform: translate(-50%,-50%);
+	width:160px;
+	height:70px;
+}
+
+
+#smanji,#pojacaj{
+	height:60px;
+	width:60px;
+	background-color:transparent;
+	border:none;
+	cursor:pointer;
+	outline:none;
+	}
+#smanji{
+	margin-left:20px;
+}
+#pojacaj{
+	float:right;
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+

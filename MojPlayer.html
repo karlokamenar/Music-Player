@@ -1,0 +1,176 @@
+<html>
+    <head>
+        <link href="stilZaPLayer.css" rel="stylesheet"/>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>   
+			<title>Music Player</title>
+			<link rel="shortcut icon" type="image/x-icon" href="icon.ico" />
+    </head>
+    <body>
+        <div id="pozadina">
+            <div id="pozadinska"></div>
+            <img src="Slika1.jpg"/>
+        </div>
+       
+        <div id="glavni">
+            <div id="slika">
+                <img src="Slika1.jpg"/>
+            </div>
+            <div id="player">
+                <div id="nazivPjesme">Nema pjesama</div>
+                <div id="buttons">
+                    <button id="prethodna" onclick="prethodna ()" onmousedown="drziPrethodna()"><img src="Prethodna.png" height="90%" width="90%"/></button>
+                    <button id="play" onclick="playPause()"><img src="Play.png"/></button>
+                    <button id="iduca" onclick="iduca()"><img src="Iduca.png" height="90%" width="90%"/></button>
+                </div>
+                
+                <div id="traka">
+                    <div id="ispuni"></div>
+                    <div id="kruzic"></div>
+                </div>
+				
+				<div id="waves">  
+				  <span></span>  
+				  <span></span>  
+				  <span></span>  
+				  <span></span>  
+				  <span></span>  
+				</div>
+				
+				<div id="currentTime">00:00 / 00:00</div>
+				
+				<div id="zvuk">
+					<button id="smanji" onclick="smanjiZvuk()"><img src="smanji.png" height="60%" width="60"</button>
+					<button id="pojacaj" onclick="pojacajZvuk()"><img src="pojacaj.png" height="60%" width="60"</button>
+				</div>
+				
+            </div>
+        </div>
+    </body>
+    <script type="text/javascript">
+    
+        var pjesme = ["Con Altura.mp3","Despacito.mp3","Te Robare.mp3","Vente Pa Ca.mp3","Runaway.mp3"];
+        var slike = ["Slika1.jpg","Slika2.jpg","Slika3.jpg","Slika4.jpg","Slika5.jpg"];
+        
+        var nazivPjesme = document.getElementById("nazivPjesme");
+        var ispuniTraku = document.getElementById("ispuni");
+		
+		var currentTime = document.getElementById("currentTime");
+        
+        var song = new Audio();
+        var trenutna = 0;    // it point to the current song
+        
+        window.onload = playSong;   // it will call the function playSong when window is load
+        
+        function playSong(){
+            
+            song.src = pjesme[trenutna];  //set the source of 0th song 
+            
+            nazivPjesme.textContent = pjesme[trenutna]; // set the title of song
+            
+            song.play();    // play the song
+        }
+        
+        function playPause(){
+            
+            if(song.paused){
+                song.play();
+                $("#play img").attr("src","Pause.png");
+            }
+            else{
+                song.pause();
+                $("#play img").attr("src","Play.png");
+            }
+        }
+        
+        song.addEventListener('timeupdate',function(){ 
+            
+            var position = song.currentTime / song.duration;
+            
+            ispuniTraku.style.width = position * 100 +'%';
+			
+			convertTime(Math.round(song.currentTime));
+			
+			if(song.ended)
+				iduca();
+        });
+        
+    
+        function iduca(){
+            
+            trenutna++;
+            if(trenutna > 4){
+                trenutna = 0;
+            }
+            playSong();
+            $("#play img").attr("src","Pause.png");
+            $("#slika img").attr("src",slike[trenutna]);
+            $("#pozadina img").attr("src",slike[trenutna]);
+        }
+    
+        function prethodna(){
+            
+            trenutna--;
+            if(trenutna < 0){
+                trenutna = 4;
+            }
+            playSong();
+            $("#play img").attr("src","Pause.png");
+            $("#slika img").attr("src",slike[trenutna]);
+            $("#pozadina img").attr("src",slike[trenutna]);
+        }
+		
+		function convertTime(seconds){
+		
+			var min = Math.floor(seconds / 60);
+			var sec = seconds % 60;
+			
+			min = (min < 10) ? "0" + min : min;
+			sec = (sec < 10) ? "0" + sec : sec;
+			currentTime.textContent = min + ":" + sec;
+		
+			totalTime(Math.round(song.duration));
+		}
+        
+		function totalTime(seconds){
+		
+			var min = Math.floor(seconds / 60);
+			var sec = seconds % 60;
+			
+			min = (min < 10) ? "0" + min : min;
+			sec = (sec < 10) ? "0" + sec : sec;
+			currentTime.textContent += "/" + min + ":" + sec;
+		
+		}
+		
+		function smanjiZvuk(){
+			song.volume -= 0.2;
+		}
+    
+		function pojacajZvuk(){
+			song.volume += 0.2;
+		}
+		
+		
+	</script>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</html>
